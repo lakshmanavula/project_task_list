@@ -8,7 +8,7 @@ Note:
         Read database from the coursedata.csv file
 
 
-1. Get all students whose qualification is BE/MCA/BSC ( Qualfication is paramater) 
+1. Get all students whose qualification is (BE/MCA/BSC) ( Qualfication is input paramater) 
 2. Get count of all the students by qualification
 3. Get count of students who got placed
 4. Get count of student who completed course but not placed
@@ -28,4 +28,43 @@ Java8:
 	        collect
 
 Junit5
+      
+      @Getters
+      @Setters
+      public class CountDTO{
+	     private int placedCount;
+	     private int notPlacedCount;
+      }
+	
+      @Getters
+      @Setters
+      public class StudentDTO{
 
+	     private String name;
+	     private String qualification;
+	     private double score;
+      }
+
+      public interface CourseStat{
+
+               public List<Student> studentsByQualification(String qualification);
+	       public int getStudentCountByQualification(String qualification);
+               public int getPlacedStudentCount();
+	       public int getNotPlacedStudentCount();
+	       public CountDTO getPlacedAndNotPlacedCount();
+               public List<Student> search(String str);
+	       public float successRate(String batchName);
+	       public List<Student> maxScoreStudent();
+	       public List<String> getStudentNames();
+	                    
+      }
+
+
+      public final class CsvReaderUtil{
+		private CsvReaderUtil(){
+
+		}
+		public static List<Student> readDataFromFile(File file){
+			//
+                }
+      }
